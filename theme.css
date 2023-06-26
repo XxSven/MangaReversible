@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+} 
+
+header {
+    perspective: 500px;
+    height: 50px;
+}
+
+.rotate {
+    transform: rotateY(180deg);
+}
+
+.rotating-header {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    position: relative;
+    height:100%
+}
+
+.face {
+    width:100%;
+    height:100%;
+    position: absolute;
+    backface-visibility:hidden;
+}
+
+.front {
+    background-color:#0379ff;
+}
+
+.back {
+    background-color:#333;
+    transform: rotateY(180deg);
+}
+
+.main-menu__list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+}
+
+.main-menu__list li {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-menu__list li:hover {
+    background-color: lightgray;
+}
