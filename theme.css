@@ -10,8 +10,10 @@ input, button, submit {
 } 
 
 header {
-    perspective: 1000px;
+    perspective: 800px;
     height: 50px;
+    overflow: hidden;
+    min-width: 300px;
 }
 
 .rotate {
@@ -22,7 +24,7 @@ header {
     transform-style: preserve-3d;
     transition: transform 2s;
     position: relative;
-    height:100%
+    height:100%;
 }
 
 .face {
@@ -89,4 +91,16 @@ header {
 
 .menu__button--current {
     border-bottom: 5px solid lightblue;
+}
+
+.list-container {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+}
+
+@media (max-width: 600px) { 
+    .menu__list {
+        flex-direction: column;
+    }
 }

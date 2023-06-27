@@ -1,0 +1,42 @@
+{
+    "mangas": [
+        {
+            "name":"One Piece",
+            "starters":[
+                {
+                    "isbn":"...",
+                    "image":"starter_op1.png"
+                }
+            ],
+            "covers":[
+                {
+                    "title":"One Piece T.83 20 ans",
+                    "isbn":"...",
+                    "imageOriginal":"cover_op1.png",
+                    "imageVariant":"variant_op1.png"
+                }, 
+                {
+                    "title":"One Piece T.84 20 ans",
+                    "isbn":"...",
+                    "imageOriginal":"cover_op2.png",
+                    "imageVariant":"variant_op2.png"
+                }, 
+                {
+                    "title":"One Piece T.85 20 ans",
+                    "isbn":"...",
+                    "imageOriginal":"cover_op3.png",
+                    "imageVariant":"variant_op3.png"
+                },
+                {
+                    "title":"One Piece T.86 20 ans",
+                    "isbn":"...",
+                    "imageOriginal":"cover_op4.png",
+                    "imageVariant":"variant_op4.png"
+                }
+            ]
+        },
+        {
+            "name":"Dead Tube"
+        }
+    ]
+}
