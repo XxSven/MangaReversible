@@ -10,22 +10,37 @@
   <body>
     <header>
       <div class="rotating-header">
-        <div class="face front">
-          Manga Reversible
-          <button class="flip-banner-button">Try me</button>
-        </div>
-        <div class="face back">
-          Manga Reversible
-          <button class="flip-banner-button">Try me</button>
-        </div>
+          <div class="face front">
+              <h1>Manga Reversible</h1>
+              <button class="flip-banner-button flip-banner-button--front"></button>
+          </div>
+          <div class="face back">
+              <h1>Manga Reversible</h1>
+              <button class="flip-banner-button flip-banner-button--back"></button>
+          </div>
       </div>
     </header>
-		<nav class="main-menu">
-      <ul class="main-menu__list">
-        <li>Accueil</li>
-        <li>Base de données</li>
-        <li>Contact</li>
-      </ul>
+    <nav class="menu">
+        <ul class="menu__list">
+          <li><button class="menu__button home-button">Accueil</button></li>
+          <li><button class="menu__button list-button">Base de données</button></li>
+          <li><button class="menu__button contact-button">Contact</button></li>
+        </ul>
     </nav>
+    <main class="content">
+
+    </main>
+    <footer>
+
+    </footer>
+    <template id="home-content">
+      <p>Bienvenue sur Manga Reversible. Ce site a pour unique ambition de lister les mangas collectors.</p>
+    </template>
+    <template id="contact-content">
+      <p>Mon mail : xxsven63@gmail.com</p>
+    </template>
+    <template id="list-content">
+    
+    </template>
   </body>
 </html>
