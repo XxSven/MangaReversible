@@ -15,7 +15,8 @@ function refreshMenu (currentButton) {
 }
 
 function refreshMainContent(contentName) {
-  var template = document.getElementById(contentName).content;
+  var templateNode = document.getElementById(contentName) as HTMLTemplateElement,
+      template = templateNode?.content;
   document.getElementsByClassName('main-content')[0].innerHTML = '';
   document.getElementsByClassName('main-content')[0].appendChild(template.cloneNode(true));
 }
