@@ -5,6 +5,9 @@
         "outDir": "./out/",
         "rootDir": "./"
     },
+    "include": [
+        "./"
+    ],
     "exclude": [
         "node_modules"
     ]

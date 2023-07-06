@@ -95,8 +95,29 @@ header {
 
 .list-container {
     display: grid;
-    grid-template-columns: 200px minmax(0, 1fr);
+    grid-template-columns: 230px minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr);
+}
+
+.manga-content {
+    display: flex;
+}
+
+.manga-list li {
+    width: 230px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.manga-list li:hover {
+    background-color: lightgray;
+}
+
+.manga-img {
+    width: 230px;
+    height: 350px;
 }
 
 @media (max-width: 600px) { 
