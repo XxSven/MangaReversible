@@ -1,4 +1,14 @@
-function rotateHeader () {
+interface Manga {
+  covers: MangaCovers[]
+  name: string
+}
+
+interface MangaCovers {
+  imageOriginal: string
+  imageVariant: string
+}
+
+function rotateHeader (): void {
   const headerNode = document.getElementsByClassName('rotating-header')[0]
   if (headerNode.classList.contains('rotate')) {
     headerNode.classList.remove('rotate')
@@ -7,36 +17,36 @@ function rotateHeader () {
   }
 }
 
-function refreshMenu (currentButton) {
+function refreshMenu (currentButton): void {
   [...document.getElementsByClassName('menu__button')].forEach((button) => {
     button.classList.remove('menu__button--current')
   })
   currentButton.classList.add('menu__button--current')
 }
 
-function refreshMainContent (contentName) {
+function refreshMainContent (contentName): void {
   const templateNode = document.getElementById(contentName) as HTMLTemplateElement
   const template = templateNode?.content
   document.getElementsByClassName('main-content')[0].innerHTML = ''
   document.getElementsByClassName('main-content')[0].appendChild(template.cloneNode(true))
 }
 
-function showDetail (manga: any) {
+function showDetail (manga: Manga): void {
   const mangaContentNode = document.getElementsByClassName('manga-content')[0]
   let imageNode; let imageContainerNode; let textNode
   mangaContentNode.innerHTML = ''
-  if (manga.covers) {
+  if (manga.covers != null) {
     manga.covers.forEach(cover => {
       imageContainerNode = document.createElement('div')
       imageNode = document.createElement('img')
       textNode = document.createElement('p')
       imageNode.classList.add('manga-img')
-      if (cover.imageOriginal && cover.imageVariant) {
+      if (cover.imageOriginal !== '' && cover.imageVariant !== '') {
         imageNode.setAttribute('src', './images/' + cover.imageOriginal)
         imageNode.setAttribute('data-isoriginal', '')
         textNode.innerText = 'Original'
         imageContainerNode.addEventListener('click', (e) => {
-          const displayedImage = imageContainerNode.getElementsByTagName('img')[0]
+          const displayedImage = imageContainerNode.getElementsByTagName('img')[0] as HTMLImageElement
           const displayedText = imageContainerNode.getElementsByTagName('p')[0]
           if (displayedImage.hasAttribute('data-isoriginal')) {
             displayedImage.setAttribute('src', './images/' + cover.imageVariant)
@@ -49,11 +59,11 @@ function showDetail (manga: any) {
           }
         })
         imageContainerNode.appendChild(imageNode)
-      } else if (cover.imageVariant) {
+      } else if (cover.imageVariant !== '') {
         imageNode.setAttribute('src', './images/' + cover.imageVariant)
         imageContainerNode.appendChild(imageNode)
         textNode.innerText = 'Variant'
-      } else if (cover.imageOriginal) {
+      } else if (cover.imageOriginal !== '') {
         imageNode.setAttribute('src', './images/' + cover.imageOriginal)
         imageContainerNode.appendChild(imageNode)
         textNode.innerText = 'Original'
@@ -68,7 +78,7 @@ function showDetail (manga: any) {
   }
 }
 
-function displayMangaContent () {
+function displayMangaContent (): void {
   const mangaList = document.getElementsByClassName('manga-list')[0]
   fetch('./data.json')
     .then(async (response) => await response.json(),
@@ -101,20 +111,19 @@ function displayMangaContent () {
       }
     )
     .then((json) => {
-      const mangas = json.mangas
+      const mangas: Manga[] = json.mangas
       const fragment = document.createDocumentFragment()
       mangas.forEach(manga => {
         const liNode = document.createElement('li')
         liNode.addEventListener('click', showDetail.bind(null, manga))
         liNode.innerText = manga?.name
         fragment.appendChild(liNode)
-        manga?.name
       })
       mangaList.appendChild(fragment)
-    })
+    }, () => {})
 }
 
-function displayContent (pageName, currentButton) {
+function displayContent (pageName: string, currentButton: HTMLButtonElement): void {
   switch (pageName) {
     case 'list':
       refreshMainContent('list-content')
@@ -131,8 +140,8 @@ function displayContent (pageName, currentButton) {
   refreshMenu(currentButton)
 }
 
-function init () {
-  const homeButton = document.getElementsByClassName('home-button')[0]
+function init (this: Window, ev: Event): void {
+  const homeButton = document.getElementsByClassName('home-button')[0] as HTMLButtonElement
   const listButton = document.getElementsByClassName('list-button')[0]
   const contactButton = document.getElementsByClassName('contact-button')[0]
 

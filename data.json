@@ -18,20 +18,20 @@
                 {
                     "title":"One Piece T.84 20 ans",
                     "isbn":"...",
-                    "imageOriginal":"cover_op2.png",
-                    "imageVariant":"variant_op2.png"
+                    "imageOriginal":"cover_op2.jpg",
+                    "imageVariant":"variant_op2.jpg"
                 }, 
                 {
                     "title":"One Piece T.85 20 ans",
                     "isbn":"...",
-                    "imageOriginal":"cover_op3.png",
-                    "imageVariant":"variant_op3.png"
+                    "imageOriginal":"cover_op3.jpg",
+                    "imageVariant":"variant_op3.jpg"
                 },
                 {
                     "title":"One Piece T.86 20 ans",
                     "isbn":"...",
-                    "imageOriginal":"cover_op4.png",
-                    "imageVariant":"variant_op4.png"
+                    "imageOriginal":"cover_op4.jpg",
+                    "imageVariant":"variant_op4.jpg"
                 }
             ]
         },

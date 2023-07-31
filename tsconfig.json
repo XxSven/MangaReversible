@@ -3,7 +3,8 @@
         "module": "commonjs",
         "target": "es6",
         "outDir": "./out/",
-        "rootDir": "./"
+        "rootDir": "./",
+        "strictNullChecks": true
     },
     "include": [
         "./"
