@@ -1,5 +1,5 @@
 # MangaReversible
 Refuge pour les collectionneurs de manga
-https://github.com/XxSven/MangaReversible
+https://xxsven.github.io/MangaReversible/
 
 [Non terminé]
