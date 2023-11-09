@@ -45,19 +45,7 @@ function showDetail (manga: Manga): void {
         imageNode.setAttribute('src', './images/' + cover.imageOriginal)
         imageNode.setAttribute('data-isoriginal', '')
         textNode.innerText = 'Original'
-        imageContainerNode.addEventListener('click', (e) => {
-          const displayedImage = imageContainerNode.getElementsByTagName('img')[0] as HTMLImageElement
-          const displayedText = imageContainerNode.getElementsByTagName('p')[0]
-          if (displayedImage.hasAttribute('data-isoriginal')) {
-            displayedImage.setAttribute('src', './images/' + cover.imageVariant)
-            displayedImage.removeAttribute('data-isoriginal')
-            displayedText.innerText = 'Variant'
-          } else {
-            displayedImage.setAttribute('src', './images/' + cover.imageOriginal)
-            displayedImage.setAttribute('data-isoriginal', '')
-            displayedText.innerText = 'Original'
-          }
-        })
+        imageContainerNode.addEventListener('click', flipImage.bind(null, imageContainerNode, cover))
         imageContainerNode.appendChild(imageNode)
       } else if (cover.imageVariant !== '') {
         imageNode.setAttribute('src', './images/' + cover.imageVariant)
@@ -75,6 +63,20 @@ function showDetail (manga: Manga): void {
       imageContainerNode.appendChild(textNode)
       mangaContentNode.appendChild(imageContainerNode)
     })
+  }
+}
+
+function flipImage (imageContainerNode, cover: MangaCovers): void {
+  const displayedImage = imageContainerNode.getElementsByTagName('img')[0] as HTMLImageElement
+  const displayedText = imageContainerNode.getElementsByTagName('p')[0]
+  if (displayedImage.hasAttribute('data-isoriginal')) {
+    displayedImage.setAttribute('src', './images/' + cover.imageVariant)
+    displayedImage.removeAttribute('data-isoriginal')
+    displayedText.innerText = 'Variant'
+  } else {
+    displayedImage.setAttribute('src', './images/' + cover.imageOriginal)
+    displayedImage.setAttribute('data-isoriginal', '')
+    displayedText.innerText = 'Original'
   }
 }
 
