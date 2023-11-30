@@ -90,7 +90,11 @@ header {
 }
 
 .menu__button--current {
-    box-shadow: inset -5px -5px 0px 0px lightblue;
+    box-shadow: inset 5px -5px 0px 0px lightblue;
+}
+
+.main-content {
+    padding: 15px;
 }
 
 .list-container {
@@ -99,6 +103,7 @@ header {
 
 .manga-nav {
     height: fit-content;
+    margin-right: 15px;
 }
 
 .manga-content {
@@ -119,6 +124,7 @@ header {
     display: flex;
     align-items: center;
     padding-left: 10px;
+    border-bottom: 1px solid lightgray;
 }
 
 .manga-list li:hover {
@@ -144,5 +150,9 @@ header {
         max-height: 100px;
         width: 100%;
         overflow-y: scroll;
+        margin: 0;
+    }
+    .main-content {
+        padding: 0;
     }
 }
