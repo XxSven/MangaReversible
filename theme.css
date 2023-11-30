@@ -90,17 +90,27 @@ header {
 }
 
 .menu__button--current {
-    border-bottom: 5px solid lightblue;
+    box-shadow: inset -5px -5px 0px 0px lightblue;
 }
 
 .list-container {
-    display: grid;
-    grid-template-columns: 230px minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr);
+    display: flex;
+}
+
+.manga-nav {
+    height: fit-content;
 }
 
 .manga-content {
     display: flex;
+    margin: 15px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.manga-content > div {
+    padding: 5px;
+    background-color: #CDCDCD;
 }
 
 .manga-list li {
@@ -123,5 +133,16 @@ header {
 @media (max-width: 600px) { 
     .menu__list {
         flex-direction: column;
+    }
+    .list-container {
+        flex-wrap: wrap;
+    }
+    .manga-list li {
+        width: 100%;
+    }
+    .manga-nav {
+        max-height: 100px;
+        width: 100%;
+        overflow-y: scroll;
     }
 }
