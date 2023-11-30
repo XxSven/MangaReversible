@@ -36,7 +36,21 @@
             ]
         },
         {
-            "name":"Dead Tube"
+            "name":"Dead Tube",
+            "covers":[
+                {
+                    "title":"Dead Tube T.8",
+                    "isbn":"...",
+                    "imageOriginal":"cover_dt1.jpg",
+                    "imageVariant":"variant_dt1.jpg"
+                }, 
+                {
+                    "title":"Dead Tube T.12",
+                    "isbn":"...",
+                    "imageOriginal":"cover_dt2.jpg",
+                    "imageVariant":"variant_dt2.jpg"
+                }
+            ]
         }
     ]
 }
