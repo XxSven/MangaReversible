@@ -6,6 +6,7 @@ interface Manga {
 interface MangaCovers {
   imageOriginal: string
   imageVariant: string
+  title: string
 }
 
 function rotateHeader (): void {
@@ -33,28 +34,29 @@ function refreshMainContent (contentName): void {
 
 function showDetail (manga: Manga): void {
   const mangaContentNode = document.getElementsByClassName('manga-content')[0]
-  let imageNode; let imageContainerNode; let textNode
+  let imageNode; let imageContainerNode; let textNode; let coverTitle: string
   mangaContentNode.innerHTML = ''
   if (manga.covers != null) {
     manga.covers.forEach(cover => {
       imageContainerNode = document.createElement('div')
       imageNode = document.createElement('img')
       textNode = document.createElement('p')
+      coverTitle = cover.title !== null && cover.title !== undefined ? cover.title + ' - ' : ''
       imageNode.classList.add('manga-img')
       if (cover.imageOriginal !== '' && cover.imageVariant !== '') {
         imageNode.setAttribute('src', './images/' + cover.imageOriginal)
         imageNode.setAttribute('data-isoriginal', '')
-        textNode.innerText = 'Original'
+        textNode.innerText = coverTitle + 'Original'
         imageContainerNode.addEventListener('click', flipImage.bind(null, imageContainerNode, cover))
         imageContainerNode.appendChild(imageNode)
       } else if (cover.imageVariant !== '') {
         imageNode.setAttribute('src', './images/' + cover.imageVariant)
         imageContainerNode.appendChild(imageNode)
-        textNode.innerText = 'Variant'
+        textNode.innerText = coverTitle + 'Variant'
       } else if (cover.imageOriginal !== '') {
         imageNode.setAttribute('src', './images/' + cover.imageOriginal)
         imageContainerNode.appendChild(imageNode)
-        textNode.innerText = 'Original'
+        textNode.innerText = coverTitle + 'Original'
       } else {
         imageNode.setAttribute('src', './images/undefined.png')
         imageContainerNode.appendChild(imageNode)
