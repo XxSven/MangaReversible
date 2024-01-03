@@ -9,6 +9,10 @@ input, button, submit {
     border: none; 
 } 
 
+p {
+    text-overflow: ellipsis;
+}
+
 header {
     perspective: 800px;
     height: 50px;
