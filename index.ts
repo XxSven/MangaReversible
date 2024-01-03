@@ -71,14 +71,15 @@ function showDetail (manga: Manga): void {
 function flipImage (imageContainerNode, cover: MangaCovers): void {
   const displayedImage = imageContainerNode.getElementsByTagName('img')[0] as HTMLImageElement
   const displayedText = imageContainerNode.getElementsByTagName('p')[0]
+  const coverTitle = cover.title !== null && cover.title !== undefined ? cover.title + ' - ' : ''
   if (displayedImage.hasAttribute('data-isoriginal')) {
     displayedImage.setAttribute('src', './images/' + cover.imageVariant)
     displayedImage.removeAttribute('data-isoriginal')
-    displayedText.innerText = 'Variant'
+    displayedText.innerText = coverTitle + 'Variant'
   } else {
     displayedImage.setAttribute('src', './images/' + cover.imageOriginal)
     displayedImage.setAttribute('data-isoriginal', '')
-    displayedText.innerText = 'Original'
+    displayedText.innerText = coverTitle + 'Original'
   }
 }
 
