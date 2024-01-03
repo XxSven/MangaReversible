@@ -9,10 +9,6 @@ input, button, submit {
     border: none; 
 } 
 
-p {
-    text-overflow: ellipsis;
-}
-
 header {
     perspective: 800px;
     height: 50px;
@@ -120,6 +116,10 @@ header {
 .manga-content > div {
     padding: 5px;
     background-color: #CDCDCD;
+}
+
+.manga-content > div > p {
+    width: 230px;
 }
 
 .manga-list li {
